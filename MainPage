@@ -1,0 +1,49 @@
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Storage;
+
+namespace SigmaFFPanel;
+
+public partial class MainPage : ContentPage
+{
+    public MainPage()
+    {
+        InitializeComponent();
+        GraphicsPicker.SelectedIndex = 0;
+        LoadSettings();
+    }
+
+    private void LoadSettings()
+    {
+        GeneralSlider.Value = Preferences.Default.Get("General", 100.0);
+        RedDotSlider.Value = Preferences.Default.Get("RedDot", 90.0);
+        Scope2Slider.Value = Preferences.Default.Get("Scope2", 85.0);
+        Scope4Slider.Value = Preferences.Default.Get("Scope4", 80.0);
+        ButtonSlider.Value = Preferences.Default.Get("ButtonSize", 50.0);
+
+        PlayerName.Text = Preferences.Default.Get("PlayerName", "Akash");
+        PlayerUID.Text = Preferences.Default.Get("PlayerUID", "");
+
+        string graphics = Preferences.Default.Get("Graphics", "Smooth");
+        int index = GraphicsPicker.Items.IndexOf(graphics);
+        GraphicsPicker.SelectedIndex = index >= 0 ? index : 0;
+    }
+
+    private async void SaveSettings_Clicked(object sender, EventArgs e)
+    {
+        Preferences.Default.Set("General", GeneralSlider.Value);
+        Preferences.Default.Set("RedDot", RedDotSlider.Value);
+        Preferences.Default.Set("Scope2", Scope2Slider.Value);
+        Preferences.Default.Set("Scope4", Scope4Slider.Value);
+        Preferences.Default.Set("ButtonSize", ButtonSlider.Value);
+
+        Preferences.Default.Set("PlayerName", PlayerName.Text ?? "");
+        Preferences.Default.Set("PlayerUID", PlayerUID.Text ?? "");
+        Preferences.Default.Set("Graphics",
+            GraphicsPicker.SelectedItem?.ToString() ?? "Smooth");
+
+        await DisplayAlert(
+            "SIGMA 444 YT",
+            "Settings saved successfully!",
+            "OK");
+    }
+}

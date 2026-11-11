@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SigmaFFPanel.MainPage"
+    BackgroundColor="#110C1C"
+    Title="SIGMA 444 YT">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="22" Spacing="18">
+
+            <Label
+                Text="SIGMA 444 YT"
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="#C084FC"
+                HorizontalOptions="Center"/>
+
+            <Label
+                Text="NEON PURPLE GAMING PANEL"
+                TextColor="White"
+                HorizontalOptions="Center"/>
+
+            <Label Text="SENSITIVITY PROFILE"
+                   TextColor="#C084FC"
+                   FontSize="18"/>
+
+            <Label Text="General" TextColor="White"/>
+            <Slider x:Name="GeneralSlider"
+                    Minimum="0" Maximum="200"
+                    Value="100"/>
+
+            <Label Text="Red Dot" TextColor="White"/>
+            <Slider x:Name="RedDotSlider"
+                    Minimum="0" Maximum="200"
+                    Value="90"/>
+
+            <Label Text="2X Scope" TextColor="White"/>
+            <Slider x:Name="Scope2Slider"
+                    Minimum="0" Maximum="200"
+                    Value="85"/>
+
+            <Label Text="4X Scope" TextColor="White"/>
+            <Slider x:Name="Scope4Slider"
+                    Minimum="0" Maximum="200"
+                    Value="80"/>
+
+            <Label Text="HUD SETTINGS"
+                   TextColor="#C084FC"
+                   FontSize="18"/>
+
+            <Label Text="Button Size"
+                   TextColor="White"/>
+
+            <Slider x:Name="ButtonSlider"
+                    Minimum="1" Maximum="100"
+                    Value="50"/>
+
+            <Label Text="Graphics"
+                   TextColor="White"/>
+
+            <Picker x:Name="GraphicsPicker"
+                    Title="Select Graphics"
+                    TextColor="White">
+                <Picker.Items>
+                    <x:String>Smooth</x:String>
+                    <x:String>Standard</x:String>
+                    <x:String>Ultra</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="PLAYER PROFILE"
+                   TextColor="#C084FC"
+                   FontSize="18"/>
+
+            <Entry x:Name="PlayerName"
+                   Placeholder="Player Name"
+                   TextColor="White"/>
+
+            <Entry x:Name="PlayerUID"
+                   Placeholder="Player UID"
+                   TextColor="White"
+                   Keyboard="Numeric"/>
+
+            <Button
+                Text="SAVE SETTINGS"
+                BackgroundColor="#9333EA"
+                TextColor="White"
+                CornerRadius="14"
+                HeightRequest="55"
+                Clicked="SaveSettings_Clicked"/>
+
+            <Label
+                Text="SIGMA 444 YT | GAMING UTILITY"
+                TextColor="#C084FC"
+                HorizontalOptions="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
